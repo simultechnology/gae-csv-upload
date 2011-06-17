@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+    <servlet>
+        <servlet-name>Select</servlet-name>
+        <servlet-class>gae.SelectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Select</servlet-name>
+        <url-pattern>/select</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FileUpload</servlet-name>
+        <servlet-class>file.upload.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUpload</servlet-name>
+        <url-pattern>/fileupload</url-pattern>
+    </servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

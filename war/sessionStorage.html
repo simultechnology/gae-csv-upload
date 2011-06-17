@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+function load() {
+  var list = document.getElementById("list");
+  list.innerHTML = "";
+  // ローカルストレージに格納されている全ての値を列挙
+  for (var i = 0; i < sessionStorage.length; i++) {
+    var key = sessionStorage.key(i);
+    list.options[list.options.length] = new Option(sessionStorage[key], key);
+  }
+}
+function remove() {
+  var list = document.getElementById("list");
+  if (list.selectedIndex < 0) {
+    return;
+  }
+  var selected = list.options[list.selectedIndex].value;
+  // 選択された項目を削除
+  sessionStorage.removeItem(selected);
+  load();
+}
+function add() {
+  var key = document.getElementById("key").value;
+  var value = document.getElementById("value").value;
+  // ストレージに値を格納
+  sessionStorage[key] = value;
+  load();
+}
+</script>
+</head>
+<body onload="load()">
+<h1>sessionStorageのサンプル</h1>
+<select id="list" size="5" style="width: 100px"></select>
+<button onclick="remove()">削除</button><br>
+キー:<input type="text" id="key"><br>
+値:<input type="text" id="value">
+<button onclick="add()">追加</button><br>
+</body>
+</html>
